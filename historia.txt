@@ -1,3 +1,40 @@
 Daniel Suarez, practica GIT
 
 Este es el archivo que usare para registrar la curva de aprendizaje de git y github
+
+los comandos de git vistos hasta ahora:
+
+
+git config --list // Muestra la lista de configuracion por defecto de GIT
+
+git config --global user.name "Daniel Suarez" // Configurar el nombre y correo asociados a git es necesario para poder
+git config --global user.email "correo"       //interactuar con el repositorio
+
+git init // Crea un repositorio git en la carpeta principal del proyecto
+
+git add archivo.extension o git add . // Agrega todos los cambios realizados a un archivo especifico o a 
+                                      //todos los archivos del proyecto respectivamente
+
+git restore --staged archivo.extension // remueve el archivo del staging area
+
+git rm --cached archivo.extension // Remueve del staging para el archivo especificado y se vuelve untracked
+
+git commit -m "mensaje sobre los cambios" // Realiza el grabado de los cambios que se encuentran en staging (add)
+
+git status // Muestra el estatus del proyecto y si existen cambios por guardar
+
+git log --stat // Muestra todos los cambios realizados al proyecto y sus detalles
+
+git show archivo.extension // Muestra los cambios realizados al archivo desde el ultimo commit
+
+git diff //Muestra las diferencias entre los cambios en staging y los que aun no se han agregado
+
+    git diff #commit1 #commit2 // Muestra las diferencias entre 2 versiones
+
+git reset #commit --soft o git reset #commit --hard // Se vuelve el archvivo a un punto anterior, las diferencias entre
+                                                    //soft y hard es que la ultima elimina todos los cambios posteriores al commit
+                                                    //especificado.
+
+git checkout #commit archivo.extension // Se regresa a la version del commit especificada sin cambiar nada en el staging area
+git checkout master archivo.extension // Se regresa a la version del archivo que este actualmente en master sin afectar el staging
+
