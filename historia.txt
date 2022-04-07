@@ -18,6 +18,8 @@ git add archivo.extension o git add . // Agrega todos los cambios realizados a u
 git restore --staged archivo.extension // remueve el archivo del staging area
 
 git rm --cached archivo.extension // Remueve del staging para el archivo especificado y se vuelve untracked
+git rm --force archivo.extension  // Elimina el archivo de git y del disco duro.
+// rm elimina el archivo del branch o estado actual del repositorio pero siempre queda registro de su existencia en el log
 
 git commit -m "mensaje sobre los cambios" // Realiza el grabado de los cambios que se encuentran en staging (add)
 
@@ -32,8 +34,11 @@ git diff //Muestra las diferencias entre los cambios en staging y los que aun no
     git diff #commit1 #commit2 // Muestra las diferencias entre 2 versiones
 
 git reset #commit --soft o git reset #commit --hard // Se vuelve el archvivo a un punto anterior, las diferencias entre
-                                                    //soft y hard es que la ultima elimina todos los cambios posteriores al commit
-                                                    //especificado.
+                                                    //soft y hard es que la ultima elimina todos los cambios que se encuentren en
+                                                    //staging por lo que el reset es definitivo.
+                                                    // Reset elimina todo el historial de cambios y versiones del log.
+
+git reset HEAD // Limpia solo el area de staging en caso de que hayamos agregado algun cambio luego de ejecutar git add
 
 git checkout #commit archivo.extension // Se regresa a la version del commit especificada sin cambiar nada en el staging area
 git checkout master archivo.extension // Se regresa a la version del archivo que este actualmente en master sin afectar el staging
