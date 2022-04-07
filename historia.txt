@@ -37,4 +37,6 @@ git reset #commit --soft o git reset #commit --hard // Se vuelve el archvivo a u
 
 git checkout #commit archivo.extension // Se regresa a la version del commit especificada sin cambiar nada en el staging area
 git checkout master archivo.extension // Se regresa a la version del archivo que este actualmente en master sin afectar el staging
+//NOTA realizar un commit luego de hacer checkout a una version anterior eliminara todo lo hecho posterior al commit al que
+//referenciamos cuando ejecutamos dicho checkout
 
