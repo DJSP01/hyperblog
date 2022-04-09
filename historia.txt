@@ -91,3 +91,11 @@ git log archivo.extencion // busca el historial de un archivo especifico
 git log -S "Por contenido" // busca los commits con el contenido dentro del archivo
 
 git log > log.txt guarda los logs en un archivo .txt
+
+
+// -----TRABAJAR CON BRANCHES----- //
+
+git branch nombre_del_nueo_branch // crea un nuevo branch
+
+git checkout nombre_del_branch // mueve el entorno al branch seleccionado
+
