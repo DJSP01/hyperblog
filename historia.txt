@@ -45,3 +45,49 @@ git checkout master archivo.extension // Se regresa a la version del archivo que
 //NOTA realizar un commit luego de hacer checkout a una version anterior eliminara todo lo hecho posterior al commit al que
 //referenciamos cuando ejecutamos dicho checkout
 
+
+
+
+//----- COMANDOS PARA TRABAJO REMOTO CON GIT -----//
+
+git clone url_a_clonar // Descargar la ultima version de la rama principal y el historial de cambios en el archivo .git del proyecto
+
+git push // Luego de git add y git commit se utiliza push para enviar los cambios al servidor remoto.
+
+git fetch // traer actualizaciones del servidor remoto y guardarlas en el repositorio local
+
+git merge // Combina los ultimos cambios del servidor remoto con el directorio local de trabajo
+
+git pull // git fetch y git merge en un solo comando
+
+---comandos que sirven para trabajar con proyectos muy grandes---
+
+git log --oneline // Muestra el id commit y el titulo del commit
+
+git log --decorate // Muestra donde se encuentra el HEAD POINT en el log
+
+git  log -p // Numero de lineas que se cambiaron y que se cambio en el contenido
+
+git shortlog // Los commits que ha realizado un usuario, mostrando el usuario y sus titulos de commit
+
+git log --graph --oneline --decorate // graph agrega aun mas simplicidad a la linea del detalle
+
+git log --pretty=format:"%cn hizo un commit %h el dia %cd" // Muestra mensajes personalizados de los commit
+
+git log -3 // limitamos el numero de commits a mostrar
+
+git log --after="2018-1-2"                  // Comandos para
+git log --after="today"                     //Realizar busquedas de commits
+git log --after="2018-1-2" --before="today" //por fechas
+
+git log --author="Nombre de autor" // para realizar busqueda de commits por nombre de autor
+
+git log --grep="INVIE" // Filtro de bisqueda que cumpla exactamente con lo que esta en comillas
+
+git log --grep="INVIE" -j // Filtro de bisqueda que cumpla con lo que esta en comillas ignorando mayuscula o minuscula
+
+git log archivo.extencion // busca el historial de un archivo especifico
+
+git log -S "Por contenido" // busca los commits con el contenido dentro del archivo
+
+git log > log.txt guarda los logs en un archivo .txt
