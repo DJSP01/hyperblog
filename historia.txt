@@ -99,3 +99,24 @@ git branch nombre_del_nueo_branch // crea un nuevo branch
 
 git checkout nombre_del_branch // mueve el entorno al branch seleccionado
 
+
+// -----Trabajando con tags y alias----- //
+
+git config alias.arbolito "log --all --graph --decorate --oneline" / Para agregar un alias temporal en local
+
+git config --global alias.arbolito "log --all --graph --decorate --oneline" / Para configurar un alias global en mi git
+
+git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" / Mi alias "superlog"
+
+
+// -----Trabajar con Tags----- //
+
+git tag -a nombre_del_tag -m "Mensaje_del_tag" id_del_commit / Crear un nuevo tag y asignarlo a un commit (a = add)
+
+git tag -d nombre_del_tag / Borrar un tag en el repositorio local (d = delete)
+
+git tag ó git show-ref --tags / Listar los tags de nuestro repositorio local
+
+git push origin --tags / Publicar un tag en el repositorio remoto
+
+git tag -d nombre_del_tag y git push origin :refs/tags/nombre_del_tag / Borrar un tag del repositorio remoto
