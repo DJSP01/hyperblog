@@ -1,0 +1,123 @@
+Daniel Suarez, practica GIT
+
+Este es el archivo que usare para registrar la curva de aprendizaje de git y github
+
+los comandos de git vistos hasta ahora:
+
+
+git config --list // Muestra la lista de configuracion por defecto de GIT
+
+git config --global user.name "Daniel Suarez" // Configurar el nombre y correo asociados a git es necesario para poder
+git config --global user.email "correo"       //interactuar con el repositorio
+
+git init // Crea un repositorio git en la carpeta principal del proyecto
+
+git add archivo.extension o git add . // Agrega todos los cambios realizados a un archivo especifico o a 
+                                      //todos los archivos del proyecto respectivamente
+
+git restore --staged archivo.extension // remueve el archivo del staging area
+
+git rm --cached archivo.extension // Remueve del staging para el archivo especificado y se vuelve untracked
+git rm --force archivo.extension  // Elimina el archivo de git y del disco duro.
+// rm elimina el archivo del branch o estado actual del repositorio pero siempre queda registro de su existencia en el log
+
+git commit -m "mensaje sobre los cambios" // Realiza el grabado de los cambios que se encuentran en staging (add)
+
+git status // Muestra el estatus del proyecto y si existen cambios por guardar
+
+git log --stat // Muestra todos los cambios realizados al proyecto y sus detalles
+
+git show archivo.extension // Muestra los cambios realizados al archivo desde el ultimo commit
+
+git diff //Muestra las diferencias entre los cambios en staging y los que aun no se han agregado
+
+    git diff #commit1 #commit2 // Muestra las diferencias entre 2 versiones
+
+git reset #commit --soft o git reset #commit --hard // Se vuelve el archvivo a un punto anterior, las diferencias entre
+                                                    //soft y hard es que la ultima elimina todos los cambios que se encuentren en
+                                                    //staging por lo que el reset es definitivo.
+                                                    // Reset elimina todo el historial de cambios y versiones del log.
+
+git reset HEAD // Limpia solo el area de staging en caso de que hayamos agregado algun cambio luego de ejecutar git add
+
+git checkout #commit archivo.extension // Se regresa a la version del commit especificada sin cambiar nada en el staging area
+git checkout master archivo.extension // Se regresa a la version del archivo que este actualmente en master sin afectar el staging
+//NOTA realizar un commit luego de hacer checkout a una version anterior eliminara todo lo hecho posterior al commit al que
+//referenciamos cuando ejecutamos dicho checkout
+
+
+
+
+//----- COMANDOS PARA TRABAJO REMOTO CON GIT -----//
+ggit remote add nombre_de_origen direccion_url_de_origen / añadir un espacio de trabajo remoto 
+
+git clone url_a_clonar // Descargar la ultima version de la rama principal y el historial de cambios en el archivo .git del proyecto
+
+git push // Luego de git add y git commit se utiliza push para enviar los cambios al servidor remoto.
+
+git fetch // traer actualizaciones del servidor remoto y guardarlas en el repositorio local
+
+git merge // Combina los ultimos cambios del servidor remoto con el directorio local de trabajo
+
+git pull // git fetch y git merge en un solo comando
+
+---comandos que sirven para trabajar con proyectos muy grandes---
+
+git log --oneline // Muestra el id commit y el titulo del commit
+
+git log --decorate // Muestra donde se encuentra el HEAD POINT en el log
+
+git  log -p // Numero de lineas que se cambiaron y que se cambio en el contenido
+
+git shortlog // Los commits que ha realizado un usuario, mostrando el usuario y sus titulos de commit
+
+git log --graph --oneline --decorate // graph agrega aun mas simplicidad a la linea del detalle
+
+git log --pretty=format:"%cn hizo un commit %h el dia %cd" // Muestra mensajes personalizados de los commit
+
+git log -3 // limitamos el numero de commits a mostrar
+
+git log --after="2018-1-2"                  // Comandos para
+git log --after="today"                     //Realizar busquedas de commits
+git log --after="2018-1-2" --before="today" //por fechas
+
+git log --author="Nombre de autor" // para realizar busqueda de commits por nombre de autor
+
+git log --grep="INVIE" // Filtro de bisqueda que cumpla exactamente con lo que esta en comillas
+
+git log --grep="INVIE" -j // Filtro de bisqueda que cumpla con lo que esta en comillas ignorando mayuscula o minuscula
+
+git log archivo.extencion // busca el historial de un archivo especifico
+
+git log -S "Por contenido" // busca los commits con el contenido dentro del archivo
+
+git log > log.txt guarda los logs en un archivo .txt
+
+
+// -----TRABAJAR CON BRANCHES----- //
+
+git branch nombre_del_nueo_branch // crea un nuevo branch
+
+git checkout nombre_del_branch // mueve el entorno al branch seleccionado
+
+
+// -----Trabajando con tags y alias----- //
+
+git config alias.arbolito "log --all --graph --decorate --oneline" / Para agregar un alias temporal en local
+
+git config --global alias.arbolito "log --all --graph --decorate --oneline" / Para configurar un alias global en mi git
+
+git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" / Mi alias "superlog"
+
+
+// -----Trabajar con Tags----- //
+
+git tag -a nombre_del_tag -m "Mensaje_del_tag" id_del_commit / Crear un nuevo tag y asignarlo a un commit (a = add)
+
+git tag -d nombre_del_tag / Borrar un tag en el repositorio local (d = delete)
+
+git tag ó git show-ref --tags / Listar los tags de nuestro repositorio local
+
+git push origin --tags / Publicar un tag en el repositorio remoto
+
+git tag -d nombre_del_tag y git push origin :refs/tags/nombre_del_tag / Borrar un tag del repositorio remoto
