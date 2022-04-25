@@ -49,19 +49,22 @@ git checkout master archivo.extension // Se regresa a la version del archivo que
 
 
 //----- COMANDOS PARA TRABAJO REMOTO CON GIT -----//
+
 git remote add nombre_de_origen direccion_url_de_origen / añadir un espacio de trabajo remoto 
 
 git clone url_a_clonar // Descargar la ultima version de la rama principal y el historial de cambios en el archivo .git del proyecto
 
-git push // Luego de git add y git commit se utiliza push para enviar los cambios al servidor remoto.
+git push nombre_del _origen brach_a_actualizar// Luego de git add y git commit se utiliza push para enviar los cambios al servidor remoto.
 
-git fetch // traer actualizaciones del servidor remoto y guardarlas en el repositorio local
+git fetch nombre_del_origen branch_a_actualizar// traer actualizaciones del servidor remoto y guardarlas en el repositorio local
 
 git merge // Combina los ultimos cambios del servidor remoto con el directorio local de trabajo
 
-git pull // git fetch y git merge en un solo comando
+git pull nombre_del_origen branch_a_actualizar// git fetch y git merge en un solo comando
+
 
 ---comandos que sirven para trabajar con proyectos muy grandes---
+
 
 git log --oneline // Muestra el id commit y el titulo del commit
 
@@ -94,11 +97,15 @@ git log -S "Por contenido" // busca los commits con el contenido dentro del arch
 git log > log.txt guarda los logs en un archivo .txt
 
 
+
+
 // -----TRABAJAR CON BRANCHES----- //
 
 git branch nombre_del_nueo_branch // crea un nuevo branch
 
 git checkout nombre_del_branch // mueve el entorno al branch seleccionado
+
+
 
 
 // -----Trabajando con tags y alias----- //
@@ -108,6 +115,8 @@ git config alias.arbolito "log --all --graph --decorate --oneline" / Para agrega
 git config --global alias.arbolito "log --all --graph --decorate --oneline" / Para configurar un alias global en mi git
 
 git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all" / Mi alias "superlog"
+
+
 
 
 // -----Trabajar con Tags----- //
@@ -121,3 +130,4 @@ git tag ó git show-ref --tags / Listar los tags de nuestro repositorio local
 git push origin --tags / Publicar un tag en el repositorio remoto
 
 git tag -d nombre_del_tag y git push origin :refs/tags/nombre_del_tag / Borrar un tag del repositorio remoto
+
