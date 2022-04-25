@@ -49,7 +49,7 @@ git checkout master archivo.extension // Se regresa a la version del archivo que
 
 
 //----- COMANDOS PARA TRABAJO REMOTO CON GIT -----//
-ggit remote add nombre_de_origen direccion_url_de_origen / añadir un espacio de trabajo remoto 
+git remote add nombre_de_origen direccion_url_de_origen / añadir un espacio de trabajo remoto 
 
 git clone url_a_clonar // Descargar la ultima version de la rama principal y el historial de cambios en el archivo .git del proyecto
 
